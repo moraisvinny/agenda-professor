@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onSubmit()">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <img [src]="avatar || '/assets/img/user.png'" style="border-radius: 50%; margin-left: 28%" />
+          <ion-fab vertical="center" horizontal="center" style="margin-top: 10%; margin-left: 3%;">
+            <ion-fab-button (click)="capturaFoto()">
+              <ion-icon name="camera"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="formularioInvalido" class="ion-padding-top">
+        <ion-col size="12">
+          <ion-text color="danger">
+            Preencha todos os campos do formulário
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="ion-padding-top">
+          <ion-item>
+            <ion-input type="text" placeholder="Seu Nome" formControlName="nome"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="email" placeholder="Seu E-mail" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="password" placeholder="Defina uma senha" formControlName="senha"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-input type="password" placeholder="Repita a senha" formControlName="repeteSenha"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button type="submit" color="primary" class="ion-margin-top" expand="full">Enviar</ion-button>
+  </form>
+
+</ion-content>

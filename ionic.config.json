@@ -1,5 +1,7 @@
 {
   "name": "agenda-professor",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
