@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { IonicStorageModule } from '@ionic/storage';
-
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { Camera } from '@ionic-native/camera/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Camera } from '@ionic-native/camera/ngx'
-import { WebView } from '@ionic-native/ionic-webview/ngx'
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { Toast } from '@ionic-native/toast/ngx';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicStorageModule } from '@ionic/storage';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { Globalization } from '@ionic-native/globalization/ngx';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { Toast } from '@ionic-native/toast/ngx';
     Camera,
     WebView,
     Toast,
+    Globalization,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -62,6 +62,7 @@ export class CadastroUsuarioComponent implements OnInit {
     if(this.formCadastro.valid && this.formCadastro.touched) {
       this.formularioInvalido = false
       const sub = this.storage.salvaUsuario(
+        this.formCadastro.get('nome').value,
         this.formCadastro.get('email').value,
         this.formCadastro.get('senha').value,
         this.avatar
