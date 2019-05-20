@@ -11,6 +11,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Globalization } from '@ionic-native/globalization/ngx';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
 
@@ -26,7 +28,9 @@ import { Globalization } from '@ionic-native/globalization/ngx';
   providers: [
     StatusBar,
     SplashScreen,
+    BackgroundMode,
     Camera,
+    LocalNotifications,
     WebView,
     Toast,
     Globalization,

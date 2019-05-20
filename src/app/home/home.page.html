@@ -7,54 +7,25 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <ion-card-header>
-          <ion-card-title>Aula Sociologia 9º Ano</ion-card-title>
-        </ion-card-header>    
-        <ion-card-content>
-            <ion-chip outline="true" color="primary">
-              <ion-icon name="pin" color="primary"></ion-icon>
-              <ion-label>Sala 117</ion-label>
-            </ion-chip><br/>
-            <ion-chip outline="true" color="primary">
-              <ion-icon name="time" color="primary"></ion-icon>
-              <ion-label>16/05/2019 14:40</ion-label>
-            </ion-chip>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Aula Filosofia 7º Ano</ion-card-title>
-        </ion-card-header>    
-        <ion-card-content>
-            <ion-chip outline="true" color="primary">
-              <ion-icon name="pin" color="primary"></ion-icon>
-              <ion-label>Sala 220</ion-label>
-            </ion-chip><br/>
-            <ion-chip outline="true" color="primary">
-              <ion-icon name="time" color="primary"></ion-icon>
-              <ion-label>16/05/2019 15:30</ion-label>
-            </ion-chip>
-        </ion-card-content>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Aula Sociologia 9º Ano</ion-card-title>
-        </ion-card-header>    
-        <ion-card-content>
-            <ion-chip outline="true" color="primary">
-              <ion-icon name="pin" color="primary"></ion-icon>
-              <ion-label>Sala 117</ion-label>
-            </ion-chip><br/>
-            <ion-chip outline="true" color="primary">
-              <ion-icon name="time" color="primary"></ion-icon>
-              <ion-label>17/05/2019 14:40</ion-label>
-            </ion-chip>
-        </ion-card-content>
-      </ion-card>
-      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button routerLink="/cadastro/evento">
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
+  <ion-card *ngFor="let evento of eventos">
+    <ion-card-header>
+      <ion-card-title>{{ evento.nome }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-chip outline="true" color="primary">
+        <ion-icon name="pin" color="primary"></ion-icon>
+        <ion-label>{{ evento.local }}</ion-label>
+      </ion-chip><br />
+      <ion-chip outline="true" color="primary">
+        <ion-icon name="time" color="primary"></ion-icon>
+        <ion-label>{{ evento.dataEvento | date: 'dd/MM/yy hh:mm'}}</ion-label>
+      </ion-chip>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/cadastro/evento">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

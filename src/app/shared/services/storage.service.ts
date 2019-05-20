@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Observable, from, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { EventoModel } from '../models/evento.model'
 
 @Injectable({
 
@@ -60,9 +61,22 @@ export class StorageService {
   removeLogado() {
     this.storage.remove('logado')
   }
-  // TODO: Concluir a inserção do evento
-  salvaEvento(evento: any): Observable<any> {
-    return from(this.storage.get('eventos'))
-      
+
+  salvaEvento(evento: EventoModel): Observable<any> {
+    return from(this.storage.get('eventos')
+      .then(eventos => {
+        if(eventos) 
+          eventos.push(evento)
+        else 
+          eventos = [evento]
+        this.storage
+          .set('eventos', eventos)
+          .catch(err => { throw new Error('Erro na inclusão') })
+      }))
+
+  }
+
+  listaEventos(): Observable<EventoModel[]> {
+    return from (this.storage.get('eventos'))
   }
 }
